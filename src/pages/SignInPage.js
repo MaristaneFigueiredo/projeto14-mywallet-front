@@ -71,7 +71,7 @@ export default function SignInPage() {
           Entrar
         </Botao>
         <Rodape>
-          <Link to="/cadastro" style={{ textDecoration: "none" }}>
+          <Link to="/cadastro">
             <TextoSecundario>Primeira vez? Cadastre-se!</TextoSecundario>
           </Link>
         </Rodape>

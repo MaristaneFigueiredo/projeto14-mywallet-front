@@ -50,6 +50,7 @@ table {
 
 * {
 	box-sizing: border-box;
+  
 	
   }
 
@@ -58,6 +59,11 @@ table {
 	/* font-family: 'Playball', serif; */
 	font-family: 'Lexend Deca', sans-serif;
   }
+
+  a {
+    text-decoration: none;
+  }
+ 
   
 `;
 
@@ -88,6 +94,7 @@ const Botao = styled.button`
   font-family: "Raleway";
   font-weight: 700;
   font-size: ${(props) => props.tamanhoTextoLabel};
+  cursor: pointer;
 `;
 
 const BotaoQuadrado = styled.button`
@@ -109,6 +116,10 @@ const BotaoQuadrado = styled.button`
   h6 {
     width: 64px;
     text-align: left;
+  }
+
+  ion-icon {
+    color: #fff;
   }
 `;
 

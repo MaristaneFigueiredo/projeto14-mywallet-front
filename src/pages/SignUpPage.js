@@ -63,6 +63,7 @@ export default function SignUpPage() {
         />
         <Input
           required
+          type="email"
           placeholder="E-mail"
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -87,7 +88,7 @@ export default function SignUpPage() {
           Cadastrar
         </Botao>
         <Rodape>
-          <Link to="/login" style={{ textDecoration: "none" }}>
+          <Link to="/login">
             <TextoSecundario>Já tem uma conta? Entre agora!</TextoSecundario>
           </Link>
         </Rodape>
