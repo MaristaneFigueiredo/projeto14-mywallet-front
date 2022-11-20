@@ -15,8 +15,11 @@ export default function EntryExitPage({ ehEntrada }) {
   const navigate = useNavigate();
 
   async function salvarEntrada() {
+    const valor = parseFloat(value.toString().replace(",", ".")).toFixed(2);
+    //console.log("valor", valor);
     const body = {
-      value: parseFloat(value),
+      //value: parseFloat(value),
+      value: valor,
       description,
     };
     const url = ehEntrada
@@ -57,7 +60,7 @@ export default function EntryExitPage({ ehEntrada }) {
         />
         <Input
           required
-          placeholder="Descricao"
+          placeholder="Descrição"
           onChange={(e) => setDescription(e.target.value)}
         />
         <Botao

@@ -63,7 +63,7 @@ export default function RecordsPage() {
           ></ion-icon>
         </Topo>
         <Conteudo>
-          <TextoContainer exibirTexto={parseFloat(saldo)}>
+          <TextoContainer exibirTexto={records.length}>
             Não há registros de entrada ou saída
           </TextoContainer>
           <div>
@@ -78,20 +78,24 @@ export default function RecordsPage() {
                   <CampoDescricao>{e.description}</CampoDescricao>
                   <CampoValor
                     corDoTexto={e.typeRecord === "E" ? "#03AC00" : "#C70000"}
-                  >{`R$ ${valor}`}</CampoValor>
+                  >
+                    {/* {`R$ ${valor}`}</CampoValor> */}
+                    {valor}
+                  </CampoValor>
                 </Record>
               );
             })}
           </div>
           <Saldo>
-            <CampoSaldo exibirTexto={parseFloat(saldo)}>SALDO</CampoSaldo>
-            {/* <CampoSaldo>SALDO</CampoSaldo> */}
-
+            <CampoSaldo exibirTexto={records.length}>SALDO</CampoSaldo>
             <CampoValue
               corDoTexto={parseFloat(saldo) >= 0 ? "#03AC00" : "#C70000"}
-              exibirTexto={parseFloat(saldo)}
+              exibirTexto={records.length}
             >
-              {`R$ ${new Intl.NumberFormat("pt-BR", {
+              {/* {`R$ ${new Intl.NumberFormat("pt-BR", {
+                minimumFractionDigits: 2,
+              }).format(saldo)}`} */}
+              {`${new Intl.NumberFormat("pt-BR", {
                 minimumFractionDigits: 2,
               }).format(saldo)}`}
             </CampoValue>
@@ -130,10 +134,7 @@ export default function RecordsPage() {
 const Saldo = styled.div`
   justify-content: space-between;
   bottom: 1;
-  // display: flex;
-  display: ${(props) => (props.exibirTexto > 0 ? "display" : "none")};
-
-  //display: none;
+  display: flex;
 
   /* align-items: stretch; */
 `;
@@ -158,6 +159,9 @@ const CampoSaldo = styled.h6`
   font-style: normal;
   font-weight: 700;
   font-size: 17px;
+
+  display: ${(props) =>
+    props.exibirTexto > 0 || props.exibirTexto > 0 ? "display" : "none"};
 `;
 const CampoValue = styled.h6`
   font-family: "Raleway";
@@ -165,7 +169,7 @@ const CampoValue = styled.h6`
   font-weight: 400;
   font-size: 17px;
   color: ${(props) => props.corDoTexto};
-  display: ${(props) => (props.exibirTexto !== 0 ? "display" : "none")};
+  display: ${(props) => (props.exibirTexto > 0 ? "display" : "none")};
 `;
 
 const Record = styled.ul`
